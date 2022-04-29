@@ -2,7 +2,15 @@
 import SwiftUI
 
 struct BookRow: View {
+    
+    let cartRepository : CartRepository = _CartRepositoryImplSingleton;
+    var bookRepository : BookRepository;
     var book: Book;
+    
+    init(book:Book, bookRepository : BookRepository = BookRepositoryImpl()) {
+        self.book = book;
+        self.bookRepository = bookRepository;
+    }
     
     var body: some View {
         NavigationLink(destination: BookDetailView(bookId: book.id)) {

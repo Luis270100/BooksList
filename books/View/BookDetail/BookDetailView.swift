@@ -1,47 +1,67 @@
 import SwiftUI
 
 struct BookDetailView: View {
-    
-    var bookId : Int;
+        
     @StateObject var viewModel : BookDetailViewModel;
+    var bookId : Int;
+    var bookRepository: BookRepository;
+    var cartRepository: CartRepository;
     
-    init(bookId: Int, viewModel : BookDetailViewModel = .init()) {
-        self.bookId = bookId;
+    
+    init(viewModel : BookDetailViewModel = .init(), bookId: Int,  bookRepositroy: BookRepository = BookRepositoryImpl(), cartRepository: CartRepository = _CartRepositoryImplSingleton) {
         _viewModel = StateObject(wrappedValue: viewModel);
+        self.bookId = bookId;
+        self.bookRepository = bookRepositroy;
+        self.cartRepository = cartRepository;
     }
     
     
     var body: some View {
-        VStack(alignment: .center, spacing: 16) {
+        VStack(alignment: .center, spacing: 20) {
             Image(viewModel.bookImage)
                 .resizable()
+                .frame(width: 150, height: 200)
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(10)
             Text(viewModel.bookAuthor).font(.system(size: 16)).bold().foregroundColor(.gray)
             Text(viewModel.bookTitle).font(.system(size: 24)).bold()
-            Text(viewModel.bookDescription)
+            Text(viewModel.bookDescription).font(.system(size: 16))
             HStack (spacing: 12){
                 ForEach(viewModel.bookGenres, id: \.self) { genre in
                     BookDetailGenre(genre: genre)
                 }
             }
-            Button(action: {}){
+            Button {
+                viewModel.addItem(bookId: bookId)
+            }label: {
                 Text("Buy for \(viewModel.bookPrice, specifier: "%.2f")")
                     .bold()
             }
-            .onAppear {
-                viewModel.getBookDetail(bookId: bookId);
-                viewModel.parseGenre();
-            }            
-            .onDisappear{
-                viewModel.emptyListOfGenres()
-            }
-            .padding(20)
+            .padding(18)
             .foregroundColor(Color.white)
             .background(Color.black)
             .cornerRadius(12)
         }
-        .padding(24)
+        .onAppear {
+            viewModel.getBookDetail(bookId: bookId);
+            viewModel.parseGenre();
+        }
+        .onDisappear{
+            viewModel.emptyListOfGenres()
+        }
+        .navigationBarTitle("", displayMode: .inline)
+        .toolbar {
+            ToolbarItem {
+                Button{
+                    print("Edit button was tapped")
+                } label: {
+                    ZStack (alignment: .center){
+                        Text("\(viewModel.cartRepository.getTotalItems())").font(.system(size: 12)).padding(.top, 3).foregroundColor(Color.black);
+                        Image(systemName: "bag").resizable().frame(width: 25, height: 25).foregroundColor(Color.black);
+                    }
+                }
+            }
+        }
         .frame(
             minWidth: 0,
             maxWidth: .infinity,
@@ -49,9 +69,8 @@ struct BookDetailView: View {
             maxHeight: .infinity,
             alignment: .topLeading
         )
-    }
-    
-    
+        .padding(24)
+    }    
 }
 
 
@@ -59,6 +78,8 @@ struct BookDetailView: View {
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = BookDetailView.BookDetailViewModel();
-        BookDetailView(bookId: booksDetail[0].bookId, viewModel: viewModel)
+        let bookRepository = BookRepositoryImpl();
+        let cartRepository = _CartRepositoryImplSingleton;
+        BookDetailView(viewModel: viewModel, bookId: booksDetail[0].bookId, bookRepositroy: bookRepository, cartRepository: cartRepository);
     }
 }

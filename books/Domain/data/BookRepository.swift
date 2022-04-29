@@ -3,5 +3,6 @@ import Foundation
 
 protocol BookRepository {
     func getBooks() -> [Book];
-    func getBook(bookId: Int) -> BookDetail;
+    func getBookDetail(bookId: Int) -> BookDetail;
+    func getBook(bookId: Int) -> Book;
 }

@@ -4,6 +4,7 @@ import Foundation
 extension BookDetailView {
     class BookDetailViewModel : ObservableObject {
         
+        // Book Detail
         @Published var bookDetail : BookDetail?
         @Published var bookImage = "";
         @Published var bookTitle = "";
@@ -12,9 +13,16 @@ extension BookDetailView {
         @Published var bookPrice = 0.0;
         @Published var bookGenres = [String]();
         
+        // Cart
+        @Published var itemsInCart = 0;
+        
+        
+        // Repositories
         var cartRepository : CartRepository;
         var bookRepository : BookRepository;
         
+        
+        //        Constructor
         init(cartRepository: CartRepository = _CartRepositoryImplSingleton, bookRepository: BookRepository = BookRepositoryImpl()) {
             self.cartRepository = cartRepository;
             self.bookRepository = bookRepository;
@@ -22,7 +30,7 @@ extension BookDetailView {
         
         
         func getBookDetail(bookId: Int) {
-            bookDetail = bookRepository.getBook(bookId: bookId);
+            bookDetail = bookRepository.getBookDetail(bookId: bookId);
             bookImage = bookDetail?.imageName ?? "";
             bookTitle = bookDetail?.title ?? "";
             bookAuthor = bookDetail?.author ?? "";
@@ -55,6 +63,16 @@ extension BookDetailView {
         
         func emptyListOfGenres() {
             bookGenres.removeAll();
+        }
+        
+        func addItem(bookId: Int) {
+            let book = bookRepository.getBook(bookId: bookId);
+            if (cartRepository.getItems().contains(where: {$0.item.id == bookId})) {
+                cartRepository.update(book: book);
+            } else {
+                cartRepository.insert(book: book);
+            }
+            itemsInCart = cartRepository.getTotalItems();
         }
     }
 }

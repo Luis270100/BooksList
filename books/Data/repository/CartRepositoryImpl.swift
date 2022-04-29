@@ -23,6 +23,8 @@ class CartRepositoryImpl : CartRepository {
     
     func insert(book: Book) {
         cart.items.append(Item(id: UUID().uuidString, item: book, units: 1))
+        cart.total += book.price;
+        cart.numberOfItems += 1;
     }
     
     func update(book: Book) {
@@ -47,6 +49,5 @@ class CartRepositoryImpl : CartRepository {
         cart.numberOfItems = 0;
     }
 }
-
 
 let _CartRepositoryImplSingleton = CartRepositoryImpl.cartRepository;
