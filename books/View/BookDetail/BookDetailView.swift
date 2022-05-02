@@ -1,11 +1,13 @@
 import SwiftUI
 
 struct BookDetailView: View {
-        
+    
     @StateObject var viewModel : BookDetailViewModel;
     var bookId : Int;
     var bookRepository: BookRepository;
     var cartRepository: CartRepository;
+        
+
     
     
     init(viewModel : BookDetailViewModel = .init(), bookId: Int,  bookRepositroy: BookRepository = BookRepositoryImpl(), cartRepository: CartRepository = _CartRepositoryImplSingleton) {
@@ -17,6 +19,7 @@ struct BookDetailView: View {
     
     
     var body: some View {
+        NavigationLink("CartView" , destination: CartView(), isActive: $viewModel.canNavigateToCartView)
         VStack(alignment: .center, spacing: 20) {
             Image(viewModel.bookImage)
                 .resizable()
@@ -33,9 +36,15 @@ struct BookDetailView: View {
             }
             Button {
                 viewModel.addItem(bookId: bookId)
+                viewModel.showBookAlert();
             }label: {
                 Text("Buy for \(viewModel.bookPrice, specifier: "%.2f")")
                     .bold()
+            }
+            .alert("Book add to cart", isPresented:  $viewModel.showAlert) {
+                Button("OK", role: .cancel) {
+                    viewModel.hideBookAlert()
+                }
             }
             .padding(18)
             .foregroundColor(Color.white)
@@ -53,7 +62,7 @@ struct BookDetailView: View {
         .toolbar {
             ToolbarItem {
                 Button{
-                    print("Edit button was tapped")
+                    viewModel.toggleNavigation();
                 } label: {
                     ZStack (alignment: .center){
                         Text("\(viewModel.cartRepository.getTotalItems())").font(.system(size: 12)).padding(.top, 3).foregroundColor(Color.black);
@@ -70,7 +79,7 @@ struct BookDetailView: View {
             alignment: .topLeading
         )
         .padding(24)
-    }    
+    }
 }
 
 

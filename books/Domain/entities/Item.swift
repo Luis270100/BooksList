@@ -1,6 +1,6 @@
 import Foundation
 
-struct Item {
+struct Item: Identifiable {
     var id: String;
     var item: Book;
     var units: Int;

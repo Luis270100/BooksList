@@ -16,18 +16,35 @@ extension BookDetailView {
         // Cart
         @Published var itemsInCart = 0;
         
+        // Alert
+        @Published var showAlert = false;
+        
+        // Navigate to CartView
+        @Published var canNavigateToCartView = false;
         
         // Repositories
         var cartRepository : CartRepository;
         var bookRepository : BookRepository;
         
         
-        //        Constructor
+        // Constructor
         init(cartRepository: CartRepository = _CartRepositoryImplSingleton, bookRepository: BookRepository = BookRepositoryImpl()) {
             self.cartRepository = cartRepository;
             self.bookRepository = bookRepository;
         }
         
+        func toggleNavigation() {
+            canNavigateToCartView.toggle();
+        }
+        
+        // Book Alert
+        func showBookAlert() {
+            showAlert = true;
+        }
+        
+        func hideBookAlert() {
+            showAlert = false;
+        }
         
         func getBookDetail(bookId: Int) {
             bookDetail = bookRepository.getBookDetail(bookId: bookId);
@@ -74,5 +91,7 @@ extension BookDetailView {
             }
             itemsInCart = cartRepository.getTotalItems();
         }
+        
+        
     }
 }
