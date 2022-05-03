@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		462C9827281B437E0083D11C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C9826281B437E0083D11C /* Book.swift */; };
-		462C982A281B44FF0083D11C /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C9829281B44FF0083D11C /* BookListView.swift */; };
 		462C982C281B462A0083D11C /* BookRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C982B281B462A0083D11C /* BookRow.swift */; };
 		462C9830281B53290083D11C /* BookDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C982F281B53290083D11C /* BookDetail.swift */; };
 		462C9835281B6E6B0083D11C /* BookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C9834281B6E6B0083D11C /* BookRepository.swift */; };
@@ -22,6 +21,7 @@
 		462C9846281BA6E80083D11C /* BookDetailGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C9845281BA6E80083D11C /* BookDetailGenre.swift */; };
 		462C9848281BACB70083D11C /* BookDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C9847281BACB70083D11C /* BookDetailViewModel.swift */; };
 		468FD96E281F21E1000A7E1A /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468FD96D281F21E1000A7E1A /* CartView.swift */; };
+		469BBD732821A91100145D06 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469BBD722821A91100145D06 /* BookListView.swift */; };
 		46ACBDF9281F8DE80032B7F9 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ACBDF8281F8DE80032B7F9 /* CartViewModel.swift */; };
 		46D547F62819F46E006432AC /* booksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D547F52819F46E006432AC /* booksApp.swift */; };
 		46D547F82819F46E006432AC /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D547F72819F46E006432AC /* BookDetailView.swift */; };
@@ -31,7 +31,6 @@
 
 /* Begin PBXFileReference section */
 		462C9826281B437E0083D11C /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
-		462C9829281B44FF0083D11C /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookListView.swift; path = ../../../../../../BookListView.swift; sourceTree = "<group>"; };
 		462C982B281B462A0083D11C /* BookRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRow.swift; sourceTree = "<group>"; };
 		462C982F281B53290083D11C /* BookDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetail.swift; sourceTree = "<group>"; };
 		462C9834281B6E6B0083D11C /* BookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRepository.swift; sourceTree = "<group>"; };
@@ -45,6 +44,7 @@
 		462C9845281BA6E80083D11C /* BookDetailGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailGenre.swift; sourceTree = "<group>"; };
 		462C9847281BACB70083D11C /* BookDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModel.swift; sourceTree = "<group>"; };
 		468FD96D281F21E1000A7E1A /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		469BBD722821A91100145D06 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
 		46ACBDF8281F8DE80032B7F9 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		46D547F22819F46E006432AC /* books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = books.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46D547F52819F46E006432AC /* booksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booksApp.swift; sourceTree = "<group>"; };
@@ -96,9 +96,9 @@
 		462C9828281B44A30083D11C /* BookList */ = {
 			isa = PBXGroup;
 			children = (
-				462C9829281B44FF0083D11C /* BookListView.swift */,
 				462C982B281B462A0083D11C /* BookRow.swift */,
 				462C9843281B85D40083D11C /* BookListViewModel.swift */,
+				469BBD722821A91100145D06 /* BookListView.swift */,
 			);
 			path = BookList;
 			sourceTree = "<group>";
@@ -264,9 +264,9 @@
 				462C9846281BA6E80083D11C /* BookDetailGenre.swift in Sources */,
 				462C9835281B6E6B0083D11C /* BookRepository.swift in Sources */,
 				46ACBDF9281F8DE80032B7F9 /* CartViewModel.swift in Sources */,
+				469BBD732821A91100145D06 /* BookListView.swift in Sources */,
 				462C983D281B78C30083D11C /* Item.swift in Sources */,
 				462C9844281B85D40083D11C /* BookListViewModel.swift in Sources */,
-				462C982A281B44FF0083D11C /* BookListView.swift in Sources */,
 				462C983F281B7B510083D11C /* ServiceData.swift in Sources */,
 				462C983B281B71420083D11C /* CartRepositoryImpl.swift in Sources */,
 				46D547F82819F46E006432AC /* BookDetailView.swift in Sources */,
