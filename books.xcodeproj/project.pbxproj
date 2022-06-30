@@ -11,6 +11,7 @@
 		4626CA67286D07680096B7AF /* BookListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626CA66286D07680096B7AF /* BookListViewModelTest.swift */; };
 		4626CA69286D17330096B7AF /* MockBookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626CA68286D17330096B7AF /* MockBookRepository.swift */; };
 		4626CA6C286D513B0096B7AF /* BookDetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626CA6B286D513B0096B7AF /* BookDetailViewModelTest.swift */; };
+		4626CA6E286DF5420096B7AF /* CartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626CA6D286DF5420096B7AF /* CartRow.swift */; };
 		462C9827281B437E0083D11C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C9826281B437E0083D11C /* Book.swift */; };
 		462C982C281B462A0083D11C /* BookRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C982B281B462A0083D11C /* BookRow.swift */; };
 		462C9830281B53290083D11C /* BookDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C982F281B53290083D11C /* BookDetail.swift */; };
@@ -49,6 +50,7 @@
 		4626CA66286D07680096B7AF /* BookListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewModelTest.swift; sourceTree = "<group>"; };
 		4626CA68286D17330096B7AF /* MockBookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBookRepository.swift; sourceTree = "<group>"; };
 		4626CA6B286D513B0096B7AF /* BookDetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModelTest.swift; sourceTree = "<group>"; };
+		4626CA6D286DF5420096B7AF /* CartRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRow.swift; sourceTree = "<group>"; };
 		462C9826281B437E0083D11C /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		462C982B281B462A0083D11C /* BookRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRow.swift; sourceTree = "<group>"; };
 		462C982F281B53290083D11C /* BookDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetail.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				468FD96D281F21E1000A7E1A /* CartView.swift */,
+				4626CA6D286DF5420096B7AF /* CartRow.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				462C983B281B71420083D11C /* CartRepositoryImpl.swift in Sources */,
 				46D547F82819F46E006432AC /* BookDetailView.swift in Sources */,
 				462C9839281B6FE80083D11C /* Cart.swift in Sources */,
+				4626CA6E286DF5420096B7AF /* CartRow.swift in Sources */,
 				46D547F62819F46E006432AC /* booksApp.swift in Sources */,
 				462C9842281B7DFE0083D11C /* BookRepositoryImpl.swift in Sources */,
 				462C9848281BACB70083D11C /* BookDetailViewModel.swift in Sources */,

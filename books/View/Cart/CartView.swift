@@ -20,23 +20,11 @@ struct CartView: View {
     
     
     var body: some View {
-        ScrollView(.vertical) {
-            VStack {
-                // Dismiss button
-                HStack() {
-                    Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
-                    }) {
-                        Image("iconClose")
-                            .resizable()
-                            .frame(width: 32, height: 32)
-                            .padding(20)
-                            .foregroundColor(.black)
-                    }
-                    Spacer()
-                }
+        ScrollView {
+            VStack (spacing:16) {
+                
                 // Title
-                VStack {
+                VStack{
                     Text("Your bag")
                         .font(.system(size: 34))
                         .fontWeight(.bold)
@@ -44,33 +32,26 @@ struct CartView: View {
                         .font(.system(size: 18))
                         .foregroundColor(.gray)
                 }
+                
                 // Item list
-                VStack(alignment: .leading) {
-                    ForEach(viewModel.items) { item in
-                        // CartRow(item: item)
-                    }
+                ForEach(viewModel.items) { item in
+                    CartRow(item: item)
                 }
+                                
                 
-                
-                Spacer().frame(height: 20)
                 // Summary
-                HStack {
-                    VStack {
-                        Image("shipping")
-                            .resizable()
-                            .frame(width: 32, height: 32)
-                            .padding(.bottom, -8)
-                        Text("FREE")
-                            .font(.system(size: 16))
+                HStack () {
+                    ZStack {
+                        Text("FREE Shipping")
+                            .font(.system(size: 10))
                             .fontWeight(.bold)
                             .padding(.bottom, 5)
+                            .multilineTextAlignment(.center)
                     }
                     .frame(width: 64, height: 64)
                     .background(Color.gray.opacity(0.4))
-                    .cornerRadius(15)
-                    
-                    
-                    Spacer().frame(width: 40)
+                    .cornerRadius(16)
+                    Spacer()
                     VStack(alignment: .leading) {
                         Text("Total:")
                             .font(.system(size: 18))
@@ -79,10 +60,15 @@ struct CartView: View {
                             .font(.system(size: 34))
                             .fontWeight(.bold)
                     }
-                    Spacer().frame(width: 80)
                 }
+                .padding()
+                .frame(
+                    maxWidth: .infinity,
+                    alignment: .center
+                )
+                
+                
                 // Checkout button
-                Divider().padding()
                 Button(action: {
                     viewModel.showCartAlert()
                 }) {
@@ -91,11 +77,11 @@ struct CartView: View {
                             .font(.system(size: 18))
                             .fontWeight(.bold)
                     }
-                    .frame(width: 200)
+                    .frame(width: 250)
                     .padding()
                     .foregroundColor(.white)
                     .background(Color.yellow)
-                    .cornerRadius(40)
+                    .cornerRadius(16)
                 }
                 .alert(isPresented: $viewModel.showAlert) {
                     Alert(title: Text("Order confirmed"),
@@ -104,12 +90,29 @@ struct CartView: View {
                         viewModel.hideCartAlert();
                     })
                 }
+                
             }
+            .frame(
+                minWidth: 0,
+                maxWidth: .infinity,
+                minHeight: 0,
+                maxHeight: .infinity,
+                alignment: .center
+            )
+            
         }
         .onAppear{
             viewModel.getItems()
             viewModel.getTotalItems();
             viewModel.getTotalPrice();
         }
+    }
+    
+}
+
+
+struct CartView_Previews: PreviewProvider {
+    static var previews: some View {
+        CartView()
     }
 }
