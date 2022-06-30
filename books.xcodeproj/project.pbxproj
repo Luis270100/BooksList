@@ -10,6 +10,7 @@
 		4626CA60286D06DA0096B7AF /* booksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626CA5F286D06DA0096B7AF /* booksTests.swift */; };
 		4626CA67286D07680096B7AF /* BookListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626CA66286D07680096B7AF /* BookListViewModelTest.swift */; };
 		4626CA69286D17330096B7AF /* MockBookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626CA68286D17330096B7AF /* MockBookRepository.swift */; };
+		4626CA6C286D513B0096B7AF /* BookDetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626CA6B286D513B0096B7AF /* BookDetailViewModelTest.swift */; };
 		462C9827281B437E0083D11C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C9826281B437E0083D11C /* Book.swift */; };
 		462C982C281B462A0083D11C /* BookRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C982B281B462A0083D11C /* BookRow.swift */; };
 		462C9830281B53290083D11C /* BookDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462C982F281B53290083D11C /* BookDetail.swift */; };
@@ -47,6 +48,7 @@
 		4626CA5F286D06DA0096B7AF /* booksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booksTests.swift; sourceTree = "<group>"; };
 		4626CA66286D07680096B7AF /* BookListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewModelTest.swift; sourceTree = "<group>"; };
 		4626CA68286D17330096B7AF /* MockBookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBookRepository.swift; sourceTree = "<group>"; };
+		4626CA6B286D513B0096B7AF /* BookDetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModelTest.swift; sourceTree = "<group>"; };
 		462C9826281B437E0083D11C /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		462C982B281B462A0083D11C /* BookRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRow.swift; sourceTree = "<group>"; };
 		462C982F281B53290083D11C /* BookDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetail.swift; sourceTree = "<group>"; };
@@ -101,11 +103,20 @@
 		4626CA5E286D06DA0096B7AF /* booksTests */ = {
 			isa = PBXGroup;
 			children = (
+				4626CA6A286D50870096B7AF /* mocks */,
 				4626CA5F286D06DA0096B7AF /* booksTests.swift */,
 				4626CA66286D07680096B7AF /* BookListViewModelTest.swift */,
-				4626CA68286D17330096B7AF /* MockBookRepository.swift */,
+				4626CA6B286D513B0096B7AF /* BookDetailViewModelTest.swift */,
 			);
 			path = booksTests;
+			sourceTree = "<group>";
+		};
+		4626CA6A286D50870096B7AF /* mocks */ = {
+			isa = PBXGroup;
+			children = (
+				4626CA68286D17330096B7AF /* MockBookRepository.swift */,
+			);
+			path = mocks;
 			sourceTree = "<group>";
 		};
 		462C9821281B421D0083D11C /* Domain */ = {
@@ -333,6 +344,7 @@
 			files = (
 				4626CA60286D06DA0096B7AF /* booksTests.swift in Sources */,
 				4626CA69286D17330096B7AF /* MockBookRepository.swift in Sources */,
+				4626CA6C286D513B0096B7AF /* BookDetailViewModelTest.swift in Sources */,
 				4626CA67286D07680096B7AF /* BookListViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

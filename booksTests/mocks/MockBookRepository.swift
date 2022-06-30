@@ -20,7 +20,7 @@ final class MockBookRepository : BookRepository {
     }
     
     func getBook(bookId: Int) -> Book {
-        Book(id: 0, title: "The Fellowship of the Ring", author: "J. R. R. Tolkien", price: 18.85, imageName: "theFellowshipOfTheKing")
+        return Book(id: 0, title: "The Fellowship of the Ring", author: "J. R. R. Tolkien", price: 18.85, imageName: "theFellowshipOfTheKing")
     }
     
     

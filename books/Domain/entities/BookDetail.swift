@@ -1,7 +1,7 @@
 import Foundation
 
 
-struct BookDetail {
+struct BookDetail: Equatable {
     var id: String;
     var bookId: Int;
     var author: String;
