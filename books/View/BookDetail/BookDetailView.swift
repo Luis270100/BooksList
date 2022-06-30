@@ -6,8 +6,8 @@ struct BookDetailView: View {
     var bookId : Int;
     var bookRepository: BookRepository;
     var cartRepository: CartRepository;
-        
-
+    
+    
     
     
     init(viewModel : BookDetailViewModel = .init(), bookId: Int,  bookRepositroy: BookRepository = BookRepositoryImpl(), cartRepository: CartRepository = _CartRepositoryImplSingleton) {
@@ -19,37 +19,39 @@ struct BookDetailView: View {
     
     
     var body: some View {
-        NavigationLink("CartView" , destination: CartView(), isActive: $viewModel.canNavigateToCartView)
-        VStack(alignment: .center, spacing: 20) {
-            Image(viewModel.bookImage)
-                .resizable()
-                .frame(width: 150, height: 200)
-                .aspectRatio(contentMode: .fit)
-                .cornerRadius(10)
-            Text(viewModel.bookAuthor).font(.system(size: 16)).bold().foregroundColor(.gray)
-            Text(viewModel.bookTitle).font(.system(size: 24)).bold()
-            Text(viewModel.bookDescription).font(.system(size: 16))
-            HStack (spacing: 12){
-                ForEach(viewModel.bookGenres, id: \.self) { genre in
-                    BookDetailGenre(genre: genre)
+        VStack {
+            NavigationLink("", destination: CartView(), isActive: $viewModel.canNavigateToCartView)
+            VStack(alignment: .center, spacing: 20) {
+                Image(viewModel.bookImage)
+                    .resizable()
+                    .frame(width: 150, height: 200)
+                    .aspectRatio(contentMode: .fit)
+                    .cornerRadius(10)
+                Text(viewModel.bookAuthor).font(.system(size: 16)).bold().foregroundColor(.gray)
+                Text(viewModel.bookTitle).font(.system(size: 24)).bold()
+                Text(viewModel.bookDescription).font(.system(size: 16))
+                HStack (spacing: 12){
+                    ForEach(viewModel.bookGenres, id: \.self) { genre in
+                        BookDetailGenre(genre: genre)
+                    }
                 }
-            }
-            Button {
-                viewModel.addItem(bookId: bookId)
-                viewModel.showBookAlert();
-            }label: {
-                Text("Buy for \(viewModel.bookPrice, specifier: "%.2f")")
-                    .bold()
-            }
-            .alert("Book add to cart", isPresented:  $viewModel.showAlert) {
-                Button("OK", role: .cancel) {
-                    viewModel.hideBookAlert()
+                Button {
+                    viewModel.addItem(bookId: bookId)
+                    viewModel.showBookAlert();
+                }label: {
+                    Text("Buy for \(viewModel.bookPrice, specifier: "%.2f")")
+                        .bold()
                 }
+                .alert("Book add to cart", isPresented:  $viewModel.showAlert) {
+                    Button("OK", role: .cancel) {
+                        viewModel.hideBookAlert()
+                    }
+                }
+                .padding(18)
+                .foregroundColor(Color.white)
+                .background(Color.black)
+                .cornerRadius(12)
             }
-            .padding(18)
-            .foregroundColor(Color.white)
-            .background(Color.black)
-            .cornerRadius(12)
         }
         .onAppear {
             viewModel.getBookDetail(bookId: bookId);
@@ -58,7 +60,7 @@ struct BookDetailView: View {
         .onDisappear{
             viewModel.emptyListOfGenres()
         }
-        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarTitle("BookDetails", displayMode: .inline)
         .toolbar {
             ToolbarItem {
                 Button{
